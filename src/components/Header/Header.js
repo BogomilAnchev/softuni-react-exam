@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import { useState } from 'react'
+import firebase from '../../services/firebase'
 
-function Header() {
-   const [user, setUser] = useState()
+function Header(props) {
 
-   const toglleUser = () => {
-      setUser((user) => user = !user)
+   let user = props.user
+
+   const logout = () => {
+      firebase.auth().signOut()
    }
 
    return (
@@ -22,7 +24,7 @@ function Header() {
             </ul>
 
             <Link to="/softuni-react-exam">
-               <img alt="site-logo" src="./images.png" />
+               <img alt="site-logo" src="/softuni-react-exam/images.png" />
             </Link>
 
             {(() => {
@@ -30,7 +32,7 @@ function Header() {
                   return (
                      <ul>
                         <Link to="/softuni-react-exam/login">
-                           <li onClick={toglleUser}>Login</li>
+                           <li>Login</li>
                         </Link>
                         <Link to="/softuni-react-exam/register">
                            <li>Register</li>
@@ -43,8 +45,8 @@ function Header() {
                         <Link to="/softuni-react-exam/profile">
                            <li>Profile</li>
                         </Link>
-                        <Link>
-                           <li onClick={toglleUser}>Logout</li>
+                        <Link to="">
+                           <li onClick={logout}>Logout</li>
                         </Link>
                      </ul>
                   );
