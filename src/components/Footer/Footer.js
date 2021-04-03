@@ -1,9 +1,11 @@
-import './Footer.scss'
+import "./Footer.scss";
 
 function Footer() {
-    return (
-        <h1>Footer here</h1>
-    )
+   return (
+      <footer className="footer">
+         <p>Simple e-commerce app to serve as an exam breaker @ Softuni Bulgaria... and all hail React :)</p>
+      </footer>
+   );
 }
 
-export default Footer
+export default Footer;
