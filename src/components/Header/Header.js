@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import { useState } from 'react'
-import firebase from '../../services/firebase'
 
-function Header(props) {
-
-   let user = props.user
-
-   const logout = () => {
-      firebase.auth().signOut()
-   }
-
+function Header({ user }) {
    return (
       <header className="header">
          <nav className="nav">
@@ -45,15 +36,15 @@ function Header(props) {
                         <Link to="/softuni-react-exam/profile">
                            <li>Profile</li>
                         </Link>
-                        <Link to="">
-                           <li onClick={logout}>Logout</li>
+                        <Link to="/softuni-react-exam/logout">
+                           <li>Logout</li>
                         </Link>
                      </ul>
                   );
                }
             })()}
          </nav>
-         <h3>Welcome, {!user ? 'Guest :)' : 'Bogo'}</h3>
+         <h3>Welcome, {!user ? "Guest :)" : user.displayName}</h3>
       </header>
    );
 }

@@ -1,5 +1,5 @@
-import { Route, Switch } from "react-router-dom";
-import {useState} from 'react'
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import firebase from "./services/firebase";
 
@@ -15,27 +15,37 @@ import Profile from "./components/User/Profile/Profile";
 const PATH = "/softuni-react-exam";
 
 function App() {
+   const [user, setUser] = useState("");
 
-   const [user, setUser] = useState('');
-
-   firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-         setUser(user)
-      } else {
-         setUser('')
-      }
-   })
-
+   useEffect(() => {
+      firebase.auth().onAuthStateChanged(setUser)
+   }, []);
+   
    return (
       <div className="App">
-         <Header user={user}/>
+         <Header user={user} />
          <main>
             <Switch>
                <Route path={PATH} exact component={LandingPage} />
                <Route path={`${PATH}/shop`} exact component={Shop} />
-               <Route path={`${PATH}/login`} exact component={Login} />
-               <Route path={`${PATH}/register`} exact component={Register} />
+
+               <Route path={`${PATH}/login`} exact>
+                  <Login user={user} />
+               </Route>
+
+               <Route path={`${PATH}/register`} exact>
+                  <Register user={user} />
+               </Route>
+
                <Route path={`${PATH}/profile`} exact component={Profile} />
+               <Route
+                  path={`${PATH}/logout`}
+                  exact
+                  render={(props) => {
+                     firebase.auth().signOut();
+                     return <Redirect to={PATH} />;
+                  }}
+               />
             </Switch>
          </main>
 
