@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/softuni-react-exam/static/css/main.a41e75a1.chunk.css",
-    "main.js": "/softuni-react-exam/static/js/main.a2214522.chunk.js",
-    "main.js.map": "/softuni-react-exam/static/js/main.a2214522.chunk.js.map",
-    "runtime-main.js": "/softuni-react-exam/static/js/runtime-main.1f15d786.js",
-    "runtime-main.js.map": "/softuni-react-exam/static/js/runtime-main.1f15d786.js.map",
-    "static/js/2.a92ddb70.chunk.js": "/softuni-react-exam/static/js/2.a92ddb70.chunk.js",
-    "static/js/2.a92ddb70.chunk.js.map": "/softuni-react-exam/static/js/2.a92ddb70.chunk.js.map",
-    "static/js/3.38bfac56.chunk.js": "/softuni-react-exam/static/js/3.38bfac56.chunk.js",
-    "static/js/3.38bfac56.chunk.js.map": "/softuni-react-exam/static/js/3.38bfac56.chunk.js.map",
+    "main.css": "/softuni-react-exam/static/css/main.b13d91ce.chunk.css",
+    "main.js": "/softuni-react-exam/static/js/main.2f353a9d.chunk.js",
+    "main.js.map": "/softuni-react-exam/static/js/main.2f353a9d.chunk.js.map",
+    "runtime-main.js": "/softuni-react-exam/static/js/runtime-main.d2531b8f.js",
+    "runtime-main.js.map": "/softuni-react-exam/static/js/runtime-main.d2531b8f.js.map",
+    "static/js/2.d4913edc.chunk.js": "/softuni-react-exam/static/js/2.d4913edc.chunk.js",
+    "static/js/2.d4913edc.chunk.js.map": "/softuni-react-exam/static/js/2.d4913edc.chunk.js.map",
+    "static/js/3.06598b3a.chunk.js": "/softuni-react-exam/static/js/3.06598b3a.chunk.js",
+    "static/js/3.06598b3a.chunk.js.map": "/softuni-react-exam/static/js/3.06598b3a.chunk.js.map",
     "index.html": "/softuni-react-exam/index.html",
-    "static/css/main.a41e75a1.chunk.css.map": "/softuni-react-exam/static/css/main.a41e75a1.chunk.css.map",
-    "static/js/2.a92ddb70.chunk.js.LICENSE.txt": "/softuni-react-exam/static/js/2.a92ddb70.chunk.js.LICENSE.txt"
+    "static/css/main.b13d91ce.chunk.css.map": "/softuni-react-exam/static/css/main.b13d91ce.chunk.css.map",
+    "static/js/2.d4913edc.chunk.js.LICENSE.txt": "/softuni-react-exam/static/js/2.d4913edc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1f15d786.js",
-    "static/js/2.a92ddb70.chunk.js",
-    "static/css/main.a41e75a1.chunk.css",
-    "static/js/main.a2214522.chunk.js"
+    "static/js/runtime-main.d2531b8f.js",
+    "static/js/2.d4913edc.chunk.js",
+    "static/css/main.b13d91ce.chunk.css",
+    "static/js/main.2f353a9d.chunk.js"
   ]
 }
