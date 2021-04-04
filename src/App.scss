@@ -1,9 +1,8 @@
-
-
 .App {
+  position: relative;
   max-width: 1400px;
+  min-height: 890px;
   margin: 0 auto;
+  padding-bottom: 50px;
   background-color: #f7f7f7;
-  text-align: center;
-  box-sizing: border-box;
 }
