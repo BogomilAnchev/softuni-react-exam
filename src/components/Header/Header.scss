@@ -2,6 +2,7 @@
    background-color: #f7f7f7;
    border-bottom-left-radius: 25px;
    border-bottom-right-radius: 25px;
+   margin-bottom: 50px;
 
    h3 {
       text-align: center;
@@ -20,8 +21,7 @@
          flex-basis: 33%;
       }
 
-      li {
-         margin: 20px 20px;
+      a {
          font-size: 28px;
          letter-spacing: 3px;
          font-weight: bold;
@@ -31,9 +31,11 @@
          transition: background-color 0.5s ease-in;
          color: grey;
          cursor: pointer;
+         text-decoration: none;
       }
 
-      a {
+      li {
+         margin-top: 50px;
          text-decoration: none;
          cursor: default;
       }
@@ -42,7 +44,11 @@
          cursor: pointer;
       }
 
-      li:hover {
+      .img {
+         padding: 0;
+      }
+
+      a:hover {
          background-color: black;
          color: white;
          transition: color 0.5s ease-in;

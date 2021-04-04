@@ -19,6 +19,9 @@ function Details({ match }) {
    return (
       <section className="details">
          <h1>{item.title}</h1>
+         <img src={item.imageUrl}></img>
+         <p>{item.description}</p>
+         <button>Add to cart</button>
       </section>
    );
 }

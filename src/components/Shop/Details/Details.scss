@@ -1,0 +1,39 @@
+.details {
+   padding: 40px;
+   width: 50%;
+   margin: 0 auto;
+   text-align: center;
+   background-color: white;
+   border-radius: 70px;
+
+   p {
+      font-size: 22px;
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 30px;
+   }
+
+   img {
+      padding-top: 20px;
+   }
+
+   button {
+      font-size: 28px;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 15px;
+      margin-top: 30px;
+      transition: color 0.5s ease-in;
+      transition: background-color 0.5s ease-in;
+      color: grey;
+      cursor: pointer;
+      text-decoration: none;
+   }
+
+   button:hover {
+    background-color: black;
+    color: white;
+    transition: color 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
+ }
+}
