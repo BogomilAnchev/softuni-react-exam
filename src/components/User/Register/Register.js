@@ -2,19 +2,26 @@ import "./Register.scss";
 import firebase from "../../../services/firebase";
 import { Redirect } from "react-router-dom";
 
-function Register({ user }) {
+function Register({ setNewUser, user }) {
    const onSubmit = (e) => {
       e.preventDefault();
 
       let email = e.target.email.value;
       let password = e.target.password.value;
+      let name = e.target.name.value;
 
       firebase
          .auth()
          .createUserWithEmailAndPassword(email, password)
-         .then((user) => {
-            console.log(user);
-         });
+         .then(() => {
+            let currUser = firebase.auth().currentUser;
+
+            currUser.updateProfile({
+               displayName: name,
+            }).then(() => {
+               setNewUser(true)
+            });
+         })
    };
 
    if (user) {
@@ -25,6 +32,13 @@ function Register({ user }) {
             <form onSubmit={onSubmit}>
                <fieldset>
                   <legend>Register Form</legend>
+                  <section className="field">
+                     <label htmlFor="name">Name</label>
+                     <span className="input">
+                        <i className="icon-user"></i>
+                        <input type="text" name="name" id="name" placeholder="Name"></input>
+                     </span>
+                  </section>
                   <section className="field">
                      <label htmlFor="email">Email</label>
                      <span className="input">

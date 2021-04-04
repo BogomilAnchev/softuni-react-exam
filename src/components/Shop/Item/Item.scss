@@ -1,0 +1,20 @@
+.shop-item {
+   max-width: 289px;
+   padding: 46px;
+   margin: 25px 25px;
+   text-align: center;
+   border-radius: 20px;
+   border: 1px solid white;
+   cursor: pointer;
+   transition: box-shadow 0.3s ease-in;
+
+   a {
+      text-decoration: none;
+      color: grey;
+   }
+}
+
+.shop-item:hover {
+   box-shadow: -6px 5px 12px 1px #000000;
+   transition: box-shadow 0.3s ease-in;
+}

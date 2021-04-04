@@ -12,9 +12,6 @@ function Login({ user }) {
       firebase
          .auth()
          .signInWithEmailAndPassword(email, password)
-         .then((user) => {
-            console.log(user);
-         });
    };
 
    if (user) {
