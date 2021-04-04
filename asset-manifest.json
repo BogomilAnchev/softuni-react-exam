@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/softuni-react-exam/static/css/main.b13d91ce.chunk.css",
+    "main.css": "/softuni-react-exam/static/css/main.173a2cab.chunk.css",
     "main.js": "/softuni-react-exam/static/js/main.2f353a9d.chunk.js",
     "main.js.map": "/softuni-react-exam/static/js/main.2f353a9d.chunk.js.map",
     "runtime-main.js": "/softuni-react-exam/static/js/runtime-main.d2531b8f.js",
@@ -10,13 +10,13 @@
     "static/js/3.06598b3a.chunk.js": "/softuni-react-exam/static/js/3.06598b3a.chunk.js",
     "static/js/3.06598b3a.chunk.js.map": "/softuni-react-exam/static/js/3.06598b3a.chunk.js.map",
     "index.html": "/softuni-react-exam/index.html",
-    "static/css/main.b13d91ce.chunk.css.map": "/softuni-react-exam/static/css/main.b13d91ce.chunk.css.map",
+    "static/css/main.173a2cab.chunk.css.map": "/softuni-react-exam/static/css/main.173a2cab.chunk.css.map",
     "static/js/2.d4913edc.chunk.js.LICENSE.txt": "/softuni-react-exam/static/js/2.d4913edc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d2531b8f.js",
     "static/js/2.d4913edc.chunk.js",
-    "static/css/main.b13d91ce.chunk.css",
+    "static/css/main.173a2cab.chunk.css",
     "static/js/main.2f353a9d.chunk.js"
   ]
 }
