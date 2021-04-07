@@ -4,7 +4,7 @@
    margin: 0 auto;
    text-align: center;
    background-color: white;
-   border-radius: 70px;
+   border-radius: 120px;
 
    p {
       font-size: 22px;
@@ -31,9 +31,9 @@
    }
 
    button:hover {
-    background-color: black;
-    color: white;
-    transition: color 0.5s ease-in;
-    transition: background-color 0.5s ease-in;
- }
+      background-color: black;
+      color: white;
+      transition: color 0.5s ease-in;
+      transition: background-color 0.5s ease-in;
+   }
 }

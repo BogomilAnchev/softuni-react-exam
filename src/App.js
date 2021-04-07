@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import firebase from "./services/firebase";
 
+import UserContext from "./context/UserContext";
+
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -11,7 +13,8 @@ import ItemList from "./components/Shop/ItemList/ItemList";
 import Login from "./components/User/Login/Login";
 import Register from "./components/User/Register/Register";
 import Profile from "./components/User/Profile/Profile";
-import Details from "./components/Shop/Details/Details"
+import Details from "./components/Shop/Details/Details";
+import Cart from "./components/User/Cart/Cart";
 
 const PATH = "/softuni-react-exam";
 
@@ -24,36 +27,36 @@ function App() {
    }, [newUser]);
 
    return (
-      <div className="App">
-         <Header user={user}/>
-         <main>
-            <Switch>
-               <Route path={PATH} exact component={LandingPage} />
-               <Route path={`${PATH}/shop`} exact component={ItemList} />
-               <Route path={`${PATH}/details/:id`} exact component={Details} />
+      <UserContext.Provider value={user}>
+         <div className="App">
+            <Header />
+            <main>
+               <Switch>
+                  <Route path={PATH} exact component={LandingPage} />
+                  <Route path={`${PATH}/shop`} exact component={ItemList} />
+                  <Route path={`${PATH}/details/:id`} exact component={Details} />
+                  <Route path={`${PATH}/login`} exact component={Login} />
 
-               <Route path={`${PATH}/login`} exact>
-                  <Login user={user} />
-               </Route>
+                  <Route path={`${PATH}/register`} exact>
+                     <Register setNewUser={setNewUser} />
+                  </Route>
 
-               <Route path={`${PATH}/register`} exact>
-                  <Register setNewUser={setNewUser} user={user} />
-               </Route>
+                  <Route path={`${PATH}/cart`} exact component={Cart} />
+                  <Route path={`${PATH}/profile`} exact component={Profile} />
+                  <Route
+                     path={`${PATH}/logout`}
+                     exact
+                     render={() => {
+                        firebase.auth().signOut();
+                        return <Redirect to={PATH} />;
+                     }}
+                  />
+               </Switch>
+            </main>
 
-               <Route path={`${PATH}/profile`} exact component={Profile} />
-               <Route
-                  path={`${PATH}/logout`}
-                  exact
-                  render={() => {
-                     firebase.auth().signOut();
-                     return <Redirect to={PATH} />;
-                  }}
-               />
-            </Switch>
-         </main>
-
-         <Footer />
-      </div>
+            <Footer />
+         </div>
+      </UserContext.Provider>
    );
 }
 

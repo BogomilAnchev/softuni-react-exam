@@ -1,8 +1,13 @@
 import "./Register.scss";
 import firebase from "../../../services/firebase";
 import { Redirect } from "react-router-dom";
+import UserContext from "../../../context/UserContext"
+import { useContext } from 'react'
 
-function Register({ setNewUser, user }) {
+function Register({ setNewUser }) {
+
+   const user = useContext(UserContext);
+
    const onSubmit = (e) => {
       e.preventDefault();
 

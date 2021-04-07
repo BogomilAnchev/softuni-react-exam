@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import UserContext from '../../context/UserContext';
+import { useContext } from 'react'
 
-function Header({ user }) {
+function Header() {
+   
+   const user = useContext(UserContext);
+
    return (
       <header className="header">
          <nav className="nav">
@@ -45,6 +50,8 @@ function Header({ user }) {
             })()}
          </nav>
          <h3>Welcome, {!user ? "Guest :)" : user.displayName}</h3>
+         {user ? <h3 className="cart"><Link className="cart-a" to='/softuni-react-exam/cart'>Shopping Cart</Link></h3> : ''}
+         
       </header>
    );
 }

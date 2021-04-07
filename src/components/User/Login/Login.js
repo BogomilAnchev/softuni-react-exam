@@ -1,8 +1,13 @@
 import "./Login.scss";
 import firebase from "../../../services/firebase";
 import { Redirect } from "react-router-dom";
+import UserContext from '../../../context/UserContext';
+import { useContext } from 'react'
 
-function Login({ user }) {
+function Login() {
+
+   const user = useContext(UserContext);
+
    const onSubmit = (e) => {
       e.preventDefault();
 

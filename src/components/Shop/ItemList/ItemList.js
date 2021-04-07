@@ -21,7 +21,6 @@ function ItemList() {
                });
             });
             setProducts(arr);
-            console.log(arr);
          });
    }, []);
 
