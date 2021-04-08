@@ -1,6 +1,6 @@
 import "./Register.scss";
 import firebase from "../../../services/firebase";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import UserContext from "../../../context/UserContext";
 import { useContext } from "react";
 
@@ -71,6 +71,7 @@ function Register({ updateUserDisplayNameOnRegister }) {
                   <input className="button submit" type="submit" value="Register"></input>
                </fieldset>
             </form>
+            <Link to="/softuni-react-exam/login"><p>You already have an account ? Click here to Login</p></Link>
          </section>
       );
    }

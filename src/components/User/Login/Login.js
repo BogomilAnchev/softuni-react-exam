@@ -1,6 +1,6 @@
 import "./Login.scss";
 import firebase from "../../../services/firebase";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import UserContext from '../../../context/UserContext';
 import { useContext } from 'react'
 
@@ -44,6 +44,7 @@ function Login() {
                   <input className="button submit" type="submit" value="Login"></input>
                </fieldset>
             </form>
+            <Link to="/softuni-react-exam/register"><p>You don't have an account ? Click here to Register</p></Link>
          </section>
       );
    }

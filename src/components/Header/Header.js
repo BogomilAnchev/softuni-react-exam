@@ -12,10 +12,10 @@ function Header() {
          <nav className="nav">
             <ul>
                <li>
-                  <Link to="/softuni-react-exam">Home</Link>
+                  <Link to="/softuni-react-exam/shop">Shop</Link>
                </li>
                <li>
-                  <Link to="/softuni-react-exam/shop">Shop</Link>
+                  <Link to="/softuni-react-exam">About us</Link>
                </li>
             </ul>
 
