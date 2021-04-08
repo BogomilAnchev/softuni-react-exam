@@ -1,0 +1,25 @@
+.profile {
+   h1,
+   h3,
+   .order {
+      text-align: center;
+   }
+
+   .order {
+       margin-top: 50px;
+   }
+
+   table {
+      width: 50%;
+      border: 2px solid grey;
+      border-radius: 15px;
+      margin: 0 auto;
+   }
+   td,
+   th {
+      border: 1px solid grey;
+      border-radius: 15px;
+      font-size: 22px;
+      padding: 20px;
+   }
+}
