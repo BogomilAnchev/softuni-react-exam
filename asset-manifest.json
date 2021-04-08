@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/softuni-react-exam/static/css/main.e038e286.chunk.css",
-    "main.js": "/softuni-react-exam/static/js/main.6593e947.chunk.js",
-    "main.js.map": "/softuni-react-exam/static/js/main.6593e947.chunk.js.map",
+    "main.css": "/softuni-react-exam/static/css/main.0e6eb2f7.chunk.css",
+    "main.js": "/softuni-react-exam/static/js/main.b839b127.chunk.js",
+    "main.js.map": "/softuni-react-exam/static/js/main.b839b127.chunk.js.map",
     "runtime-main.js": "/softuni-react-exam/static/js/runtime-main.6ce2aaa3.js",
     "runtime-main.js.map": "/softuni-react-exam/static/js/runtime-main.6ce2aaa3.js.map",
-    "static/js/2.cc64268e.chunk.js": "/softuni-react-exam/static/js/2.cc64268e.chunk.js",
-    "static/js/2.cc64268e.chunk.js.map": "/softuni-react-exam/static/js/2.cc64268e.chunk.js.map",
+    "static/js/2.6bae4303.chunk.js": "/softuni-react-exam/static/js/2.6bae4303.chunk.js",
+    "static/js/2.6bae4303.chunk.js.map": "/softuni-react-exam/static/js/2.6bae4303.chunk.js.map",
     "static/js/3.7f1af3f2.chunk.js": "/softuni-react-exam/static/js/3.7f1af3f2.chunk.js",
     "static/js/3.7f1af3f2.chunk.js.map": "/softuni-react-exam/static/js/3.7f1af3f2.chunk.js.map",
     "index.html": "/softuni-react-exam/index.html",
-    "static/css/main.e038e286.chunk.css.map": "/softuni-react-exam/static/css/main.e038e286.chunk.css.map",
-    "static/js/2.cc64268e.chunk.js.LICENSE.txt": "/softuni-react-exam/static/js/2.cc64268e.chunk.js.LICENSE.txt"
+    "static/css/main.0e6eb2f7.chunk.css.map": "/softuni-react-exam/static/css/main.0e6eb2f7.chunk.css.map",
+    "static/js/2.6bae4303.chunk.js.LICENSE.txt": "/softuni-react-exam/static/js/2.6bae4303.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6ce2aaa3.js",
-    "static/js/2.cc64268e.chunk.js",
-    "static/css/main.e038e286.chunk.css",
-    "static/js/main.6593e947.chunk.js"
+    "static/js/2.6bae4303.chunk.js",
+    "static/css/main.0e6eb2f7.chunk.css",
+    "static/js/main.b839b127.chunk.js"
   ]
 }
