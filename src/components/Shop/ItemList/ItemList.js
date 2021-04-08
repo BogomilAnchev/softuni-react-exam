@@ -3,7 +3,7 @@ import firebase from "../../../services/firebase";
 import { useState, useEffect } from "react";
 import Item from '../Item/Item'
 
-function ItemList() {
+function ItemList(params) {
    const [products, setProducts] = useState([]);
 
    useEffect(() => {

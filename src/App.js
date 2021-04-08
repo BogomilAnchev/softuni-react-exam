@@ -19,12 +19,26 @@ import Cart from "./components/User/Cart/Cart";
 const PATH = "/softuni-react-exam";
 
 function App() {
-   const [user, setUser] = useState("");
+   const [user, setUser] = useState({});
    const [newUser, setNewUser] = useState(false);
+   const [userCart, setUserCart] = useState([]);
 
    useEffect(() => {
       firebase.auth().onAuthStateChanged(setUser);
    }, [newUser]);
+
+   useEffect(() => {
+      if (!user) return
+      firebase
+         .firestore()
+         .collection("cart")
+         .doc(user.email)
+         .get()
+         .then((doc) => {
+            let data = doc.data();
+            setUserCart(data?.cart);
+         });
+   }, [user]);
 
    return (
       <UserContext.Provider value={user}>
@@ -33,16 +47,25 @@ function App() {
             <main>
                <Switch>
                   <Route path={PATH} exact component={LandingPage} />
+
                   <Route path={`${PATH}/shop`} exact component={ItemList} />
-                  <Route path={`${PATH}/details/:id`} exact component={Details} />
+
+                  <Route path={`${PATH}/details/:id`} exact render={(props) => {
+                     return <Details {...props} userCart={userCart} setUserCart={setUserCart} ></Details>
+                  }}/>
+                     
                   <Route path={`${PATH}/login`} exact component={Login} />
 
                   <Route path={`${PATH}/register`} exact>
-                     <Register setNewUser={setNewUser} />
+                     <Register updateUserDisplayNameOnRegister={setNewUser} />
                   </Route>
 
-                  <Route path={`${PATH}/cart`} exact component={Cart} />
+                  <Route path={`${PATH}/cart`} exact>
+                     <Cart setUserCart={setUserCart} userCart={userCart}></Cart>
+                  </Route>
+
                   <Route path={`${PATH}/profile`} exact component={Profile} />
+
                   <Route
                      path={`${PATH}/logout`}
                      exact

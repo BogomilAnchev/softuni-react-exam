@@ -1,31 +1,27 @@
 import "./Cart.scss";
-import { useState, useEffect } from "react";
-import firebase from "../../../services/firebase";
+import { useState, useEffect, useContext } from "react";
+import firebase from '../../../services/firebase';
 import UserContext from "../../../context/UserContext";
-import { useContext } from "react";
 
-function Cart() {
+function Cart({ userCart, setUserCart }) {
    const user = useContext(UserContext);
-   const [cart, setCart] = useState([]);
+
    const [total, setTotal] = useState(0);
 
    useEffect(() => {
-      firebase
-         .firestore()
-         .collection("cart")
-         .doc(user.email)
-         .get()
-         .then((doc) => {
-            let data = doc.data();
-            setCart(data?.cart);
-            let totalPrice = 0;
-            data?.cart.forEach((item) => {
-               totalPrice += +item.price * +item.qty;
-            });
-            setTotal(totalPrice);
-         });
-   }, [user]);
-   if (cart?.length === 0) {
+      let totalPrice = 0;
+      userCart?.forEach((item) => {
+         totalPrice += +item.price * +item.qty;
+      });
+      setTotal(totalPrice);
+   }, [userCart]);
+
+   const clearCart = () => {
+      setUserCart([]);
+      firebase.firestore().collection("cart").doc(user.email).set({ cart: [] });
+   };
+
+   if (userCart?.length === 0) {
       return <h1>You cart is empty</h1>;
    } else {
       return (
@@ -41,13 +37,13 @@ function Cart() {
                   </tr>
                </thead>
                <tbody>
-                  {cart?.map((item) => {
+                  {userCart?.map((item) => {
                      return (
                         <tr key={item.title}>
                            <td>{item.title}</td>
-                           <td>{item.price}</td>
+                           <td>{Number(item.price).toFixed(2)}</td>
                            <td>{item.qty}</td>
-                           <td>{+item.price * +item.qty}</td>
+                           <td>{(Number(item.price) * Number(item.qty)).toFixed(2)}</td>
                         </tr>
                      );
                   })}
@@ -57,10 +53,11 @@ function Cart() {
                      <td>------</td>
                      <td>------</td>
                      <td>------</td>
-                     <td>{total}</td>
+                     <td>{total.toFixed(2)}</td>
                   </tr>
                </tfoot>
             </table>
+            <button onClick={clearCart}>Clear Cart</button>
          </section>
       );
    }

@@ -1,11 +1,10 @@
 import "./Register.scss";
 import firebase from "../../../services/firebase";
 import { Redirect } from "react-router-dom";
-import UserContext from "../../../context/UserContext"
-import { useContext } from 'react'
+import UserContext from "../../../context/UserContext";
+import { useContext } from "react";
 
-function Register({ setNewUser }) {
-
+function Register({ updateUserDisplayNameOnRegister }) {
    const user = useContext(UserContext);
 
    const onSubmit = (e) => {
@@ -21,12 +20,16 @@ function Register({ setNewUser }) {
          .then(() => {
             let currUser = firebase.auth().currentUser;
 
-            currUser.updateProfile({
-               displayName: name,
-            }).then(() => {
-               setNewUser(true)
-            });
-         })
+            currUser
+               .updateProfile({
+                  displayName: name,
+               })
+               .then(() => {
+                  updateUserDisplayNameOnRegister(true);
+                  firebase.firestore().collection("cart").doc(email).set({ cart: [] });
+                  firebase.firestore().collection("orders").doc(email).set({ orders: [] });
+               });
+         });
    };
 
    if (user) {
