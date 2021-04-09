@@ -28,7 +28,7 @@ function App() {
    }, [newUser]);
 
    useEffect(() => {
-      if (!user) return
+      if (!user) return;
       firebase
          .firestore()
          .collection("cart")
@@ -50,19 +50,27 @@ function App() {
 
                   <Route path={`${PATH}/shop`} exact component={ItemList} />
 
-                  <Route path={`${PATH}/details/:id`} exact render={(props) => {
-                     return <Details {...props} userCart={userCart} setUserCart={setUserCart} ></Details>
-                  }}/>
-                     
+                  <Route
+                     path={`${PATH}/details/:id`}
+                     exact
+                     render={(props) => {
+                        return <Details {...props} userCart={userCart} setUserCart={setUserCart}></Details>;
+                     }}
+                  />
+
                   <Route path={`${PATH}/login`} exact component={Login} />
 
                   <Route path={`${PATH}/register`} exact>
                      <Register updateUserDisplayNameOnRegister={setNewUser} />
                   </Route>
 
-                  <Route path={`${PATH}/cart`} exact>
-                     <Cart setUserCart={setUserCart} userCart={userCart}></Cart>
-                  </Route>
+                  <Route
+                     path={`${PATH}/cart`}
+                     exact
+                     render={(props) => {
+                        return <Cart {...props} setUserCart={setUserCart} userCart={userCart}></Cart>;
+                     }}
+                  />
 
                   <Route path={`${PATH}/profile`} exact component={Profile} />
 

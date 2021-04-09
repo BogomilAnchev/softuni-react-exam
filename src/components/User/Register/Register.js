@@ -33,7 +33,7 @@ function Register({ updateUserDisplayNameOnRegister }) {
    };
 
    if (user) {
-      return <Redirect to="/softuni-react-exam" />;
+      return <Redirect to="/softuni-react-exam/shop" />;
    } else {
       return (
          <section className="register-page">

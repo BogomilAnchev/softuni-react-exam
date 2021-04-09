@@ -3,7 +3,7 @@ import UserContext from "../../../context/UserContext";
 import firebase from "../../../services/firebase";
 import DisplayCart from "./DisplayCart";
 
-function Cart({ userCart, setUserCart }) {
+function Cart({ history, userCart, setUserCart }) {
    const user = useContext(UserContext);
 
    const [total, setTotal] = useState(0);
@@ -43,6 +43,7 @@ function Cart({ userCart, setUserCart }) {
 
             firebase.firestore().collection("orders").doc(user.email).set({ orders: newOrders });
             clearCart();
+            history.push('/softuni-react-exam/profile')
          });
    };
 
@@ -52,7 +53,7 @@ function Cart({ userCart, setUserCart }) {
 
       if (action === "sub") {
          newCart[index].qty--;
-         setTotal((old) => (old -= +newCart[index].price));
+         setTotal((old) => (old -= +newCart[index]?.price));
 
          if (newCart[index].qty === 0) {
             newCart.splice(index, 1);

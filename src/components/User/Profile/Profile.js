@@ -34,7 +34,7 @@ function Profile() {
             <h3>Your name: {user.displayName}</h3>
             {orders?.map((order, i) => {
                return (
-                  <div key={order.key} className="order">
+                  <div key={order.date} className="order">
                      <h4>
                         Order No{i + 1} placed on {order.date}, Total amount: {Number(order.total).toFixed(2)}$
                      </h4>
@@ -54,7 +54,7 @@ function Profile() {
                                     <td>{product.title}</td>
                                     <td>{product.price}$</td>
                                     <td>{product.qty}</td>
-                                    <td>{(Number(product.price) * Number(product.qty)).toFixed(2)}</td>
+                                    <td>{(Number(product.price) * Number(product.qty)).toFixed(2)}$</td>
                                  </tr>
                               );
                            })}

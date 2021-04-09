@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import UserContext from "../../../context/UserContext";
 import { Link } from "react-router-dom";
 
-function Details({ match, userCart, setUserCart }) {
+function Details({ history, match, userCart, setUserCart }) {
    const user = useContext(UserContext);
    const [item, setItem] = useState({});
 
@@ -31,7 +31,14 @@ function Details({ match, userCart, setUserCart }) {
          newCart.push(item);
       }
       setUserCart(newCart);
-      firebase.firestore().collection("cart").doc(user.email).set({ cart: newCart });
+      firebase
+         .firestore()
+         .collection("cart")
+         .doc(user.email)
+         .set({ cart: newCart })
+         .then(() => {
+            history.push('/softuni-react-exam/cart')
+         });
    };
 
    return (
