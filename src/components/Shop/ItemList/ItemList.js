@@ -3,7 +3,7 @@ import firebase from "../../../services/firebase";
 import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 
-function ItemList(params) {
+function ItemList({ isAdmin }) {
    const [products, setProducts] = useState([]);
 
    useEffect(() => {
@@ -51,7 +51,7 @@ function ItemList(params) {
          <input onKeyUp={search} type="text" placeholder="Search"></input>
          <article className="shop-section-list">
             {products.map((product) => {
-               return <Item key={product.id} id={product.id} item={product.info} />;
+               return <Item isAdmin={isAdmin} key={product.id} id={product.id} item={product.info} />;
             })}
          </article>
       </section>

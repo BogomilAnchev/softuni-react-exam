@@ -15,6 +15,8 @@ import Register from "./components/User/Register/Register";
 import Profile from "./components/User/Profile/Profile";
 import Details from "./components/Shop/Details/Details";
 import Cart from "./components/User/Cart/Cart";
+import Admin from "./components/Admin/Admin";
+import CreateEditProduct from "./components/Admin/CreateEditProduct";
 
 const PATH = "/softuni-react-exam";
 
@@ -48,13 +50,25 @@ function App() {
                <Switch>
                   <Route path={PATH} exact component={LandingPage} />
 
-                  <Route path={`${PATH}/shop`} exact component={ItemList} />
+                  <Route path={`${PATH}/shop`} exact>
+                     <ItemList isAdmin="false" />
+                  </Route>
 
                   <Route
-                     path={`${PATH}/details/:id`}
+                     path={`${PATH}/admin/edit/:id`}
                      exact
                      render={(props) => {
-                        return <Details {...props} userCart={userCart} setUserCart={setUserCart}></Details>;
+                        return <CreateEditProduct {...props} doEdit="true" />;
+                     }}
+                  />
+
+                  <Route path={`${PATH}/admin`} exact component={Admin} />
+
+                  <Route
+                     path={`${PATH}/details/:id/:isAdmin`}
+                     exact
+                     render={(props) => {
+                        return <Details {...props} userCart={userCart} setUserCart={setUserCart} />;
                      }}
                   />
 

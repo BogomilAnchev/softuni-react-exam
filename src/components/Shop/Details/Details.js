@@ -9,6 +9,7 @@ function Details({ history, match, userCart, setUserCart }) {
    const [item, setItem] = useState({});
 
    const productId = match?.params.id;
+   const isAdmin = match?.params.isAdmin;
 
    useEffect(() => {
       firebase
@@ -37,24 +38,45 @@ function Details({ history, match, userCart, setUserCart }) {
          .doc(user.email)
          .set({ cart: newCart })
          .then(() => {
-            history.push('/softuni-react-exam/cart')
+            history.push("/softuni-react-exam/cart");
          });
    };
 
-   return (
-      <section className="details">
-         <h1>{item.title}</h1>
-         <img alt="product" src={item.imageUrl}></img>
-         <p>{item.description}</p>
-         {user ? (
-            <button onClick={addToCart}>Add to cart</button>
-         ) : (
-            <Link to="/softuni-react-exam/login">
-               <button>Login to buy</button>
-            </Link>
-         )}
-      </section>
-   );
+   const deleteProduct = () => {
+      firebase.firestore().doc('products/' + productId).delete();
+      history.push('/softuni-react-exam/admin')
+   }
+
+   if (user && isAdmin === "true") {
+      return (
+         <section className="details">
+            <h1>{item.title}</h1>
+            <img alt="product" src={item.imageUrl}></img>
+            <p>{item.description}</p>
+            <article>
+               <button onClick={deleteProduct}>Delete</button>
+               <Link to={`/softuni-react-exam/admin/edit/${productId}`} >
+                  <button>Edit</button>
+               </Link>
+            </article>
+         </section>
+      );
+   } else {
+      return (
+         <section className="details">
+            <h1>{item.title}</h1>
+            <img alt="product" src={item.imageUrl}></img>
+            <p>{item.description}</p>
+            {user ? (
+               <button onClick={addToCart}>Add to cart</button>
+            ) : (
+               <Link to="/softuni-react-exam/login">
+                  <button>Login to buy</button>
+               </Link>
+            )}
+         </section>
+      );
+   }
 }
 
 export default Details;
