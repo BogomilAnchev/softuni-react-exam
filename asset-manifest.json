@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/softuni-react-exam/static/css/main.eb916848.chunk.css",
-    "main.js": "/softuni-react-exam/static/js/main.63719fd3.chunk.js",
-    "main.js.map": "/softuni-react-exam/static/js/main.63719fd3.chunk.js.map",
+    "main.js": "/softuni-react-exam/static/js/main.c8fff183.chunk.js",
+    "main.js.map": "/softuni-react-exam/static/js/main.c8fff183.chunk.js.map",
     "runtime-main.js": "/softuni-react-exam/static/js/runtime-main.b94a7551.js",
     "runtime-main.js.map": "/softuni-react-exam/static/js/runtime-main.b94a7551.js.map",
     "static/js/2.6a33a2cd.chunk.js": "/softuni-react-exam/static/js/2.6a33a2cd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b94a7551.js",
     "static/js/2.6a33a2cd.chunk.js",
     "static/css/main.eb916848.chunk.css",
-    "static/js/main.63719fd3.chunk.js"
+    "static/js/main.c8fff183.chunk.js"
   ]
 }
