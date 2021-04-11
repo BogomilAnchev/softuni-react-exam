@@ -32,6 +32,7 @@ function Profile() {
             <h1>Check out your profile info and orders below</h1>
             <h3>You email: {user.email}</h3>
             <h3>Your name: {user.displayName}</h3>
+            {orders.length === 0 ? <h3>You haven't placed any orders yet</h3> : ''}
             {orders?.map((order, i) => {
                return (
                   <div key={order.date} className="order">

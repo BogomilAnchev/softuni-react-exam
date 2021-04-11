@@ -1,12 +1,12 @@
 import "./Login.scss";
 import firebase from "../../../services/firebase";
 import { Redirect, Link } from "react-router-dom";
-import UserContext from '../../../context/UserContext';
-import { useContext } from 'react'
+import UserContext from "../../../context/UserContext";
+import { useContext, useState } from "react";
 
 function Login() {
-
    const user = useContext(UserContext);
+   const [error, setError] = useState();
 
    const onSubmit = (e) => {
       e.preventDefault();
@@ -17,6 +17,11 @@ function Login() {
       firebase
          .auth()
          .signInWithEmailAndPassword(email, password)
+         .catch((err) => {
+            if (err.code === "auth/user-not-found") setError("There is no account corresponding to this email");
+            if (err.code === "auth/wrong-password") setError("Wrong password");
+            console.log(err);
+         });
    };
 
    if (user) {
@@ -24,6 +29,9 @@ function Login() {
    } else {
       return (
          <section className="login-page">
+            <article>
+               <p className="err">{error}</p>
+            </article>
             <form onSubmit={onSubmit}>
                <fieldset>
                   <legend>Login Form</legend>
@@ -44,7 +52,9 @@ function Login() {
                   <input className="button submit" type="submit" value="Login"></input>
                </fieldset>
             </form>
-            <Link to="/softuni-react-exam/register"><p>You don't have an account ? Click here to Register</p></Link>
+            <Link to="/softuni-react-exam/register">
+               <p>You don't have an account ? Click here to Register</p>
+            </Link>
          </section>
       );
    }

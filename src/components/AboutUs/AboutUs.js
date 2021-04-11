@@ -1,8 +1,8 @@
-import './LandingPage.scss'
+import './AboutUs.scss'
 
 function LandingPage() {
     return (
-        <h1>LandingPage here</h1>
+        <h1>About Us here</h1>
     )
 }
 

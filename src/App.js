@@ -8,7 +8,7 @@ import UserContext from "./context/UserContext";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import LandingPage from "./components/LandingPage/LandingPage";
+import AboutUs from "./components/AboutUs/AboutUs";
 import ItemList from "./components/Shop/ItemList/ItemList";
 import Login from "./components/User/Login/Login";
 import Register from "./components/User/Register/Register";
@@ -48,7 +48,7 @@ function App() {
             <Header />
             <main>
                <Switch>
-                  <Route path={PATH} exact component={LandingPage} />
+                  <Route path={PATH} exact component={AboutUs} />
 
                   <Route path={`${PATH}/shop`} exact>
                      <ItemList isAdmin="false" />

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 function CreateEditProduct({ match, history, doEdit }) {
    const [item, setItem] = useState({});
+   const [errors, setErrors] = useState([]);
 
    let productId = match?.params.id;
 
@@ -26,6 +27,20 @@ function CreateEditProduct({ match, history, doEdit }) {
       let imageUrl = e.target.imageUrl.value;
       let description = e.target.description.value;
 
+      let errs = [];
+      let checkIsUrlValid = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(imageUrl);
+
+      if (title.length > 20) errs.push("Title shouldn't be longer than 20 chars!");
+      if (isNaN(price) === true) errs.push("Price should be a valid number!");
+      if (!checkIsUrlValid) errs.push("Image url should be a valid Url!");
+      if (description.length < 50) errs.push("Description should be at least 50 chars long!")
+
+      setErrors(errs);
+
+      if (errs.length > 0) {
+         return;
+      }
+
       let product = {
          title,
          price,
@@ -47,6 +62,19 @@ function CreateEditProduct({ match, history, doEdit }) {
 
    return (
       <section className="create-form">
+         {errors.length < 1 ? (
+            ""
+         ) : (
+            <article>
+               {errors?.map((err) => {
+                  return (
+                     <p className="err" key={err}>
+                        {err}
+                     </p>
+                  );
+               })}
+            </article>
+         )}
          <form onSubmit={onSubmit}>
             <fieldset>
                {doEdit === "false" ? <legend>Create new product</legend> : <legend>Edit {item?.title}</legend>}
