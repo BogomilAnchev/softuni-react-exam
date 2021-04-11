@@ -1,7 +1,8 @@
 import "./ItemList.scss";
 import firebase from "../../../services/firebase";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Item from "../Item/Item";
+import _ from 'lodash'
 
 function ItemList({ isAdmin }) {
    const [products, setProducts] = useState([]);
@@ -24,8 +25,7 @@ function ItemList({ isAdmin }) {
          });
    }, []);
 
-   const search = (e) => {
-      let searchValue = e.target.value;
+   const search = (val) => {
       firebase
          .firestore()
          .collection("products")
@@ -40,15 +40,23 @@ function ItemList({ isAdmin }) {
                });
             });
             let filteredProducts = arr.filter((x) => {
-               return x.info.title.toLowerCase().includes(searchValue.toLowerCase());
+               return x.info.title.toLowerCase().includes(val.toLowerCase());
             });
             setProducts(filteredProducts);
          });
    };
 
+   const delayedSearch = useMemo(() => _.debounce(val => search(val), 600), [])
+
+   const onChange = e => {     
+      delayedSearch(e.target.value);
+    };
+
+   
+
    return (
       <section className="shop-section">
-         <input onKeyUp={search} type="text" placeholder="Search"></input>
+         <input onKeyUp={onChange} type="text" placeholder="Search"></input>
          <article className="shop-section-list">
             {products.map((product) => {
                return <Item isAdmin={isAdmin} key={product.id} id={product.id} item={product.info} />;
